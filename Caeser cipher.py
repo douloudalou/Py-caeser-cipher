@@ -1,4 +1,4 @@
-# Allows choosing of Encrypt or Decrypt (Decrypt not done)
+# Allows choosing of Encrypt or Decrypt 
 # Able to work with spaces " "
 # Password function
 
@@ -11,6 +11,7 @@ new_text = []
 smt = []
 num_tries = 0
 Access = False
+Alphabets = "abcdefghijklmnopqrstuvwxyz"
 
 def checking_password(x):
     print(x)
@@ -47,7 +48,6 @@ def checking_password(x):
         checking_password(x)
         
 def Encrypt(c):
-    Alphabets = "abcdefghijklmnopqrstuvwxyz"
     char_index = Alphabets.index(c)
     new_char_index = 0
     new_char = ""
@@ -60,8 +60,18 @@ def Encrypt(c):
 
     new_text.append(new_char)
 
-#def Decrypt(c):
-#    print()
+def Decrypt(c):
+    char_index = Alphabets.index(c)
+    new_char_index = 0
+    new_char = ""
+
+    if Type == "Normal":
+        new_char_index = (char_index - 3) % len(Alphabets)
+        new_char = Alphabets[new_char_index]
+    elif Type == "Meee":
+        breakpoint
+
+    new_text.append(new_char)
 
 def print_text():
     print_text = ""
@@ -89,8 +99,8 @@ def main(Access):
             else:
                 if Encrypt_Decrypt == "Encrypt":
                     Encrypt(c)
-                #elif Encrypt_Decrypt == "Decrypt":
-                    #Decrypt(c)
+                elif Encrypt_Decrypt == "Decrypt":
+                    Decrypt(c)
 
         print_text()
         print("Done encrypting")
